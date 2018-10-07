@@ -2,7 +2,7 @@ import { h, app } from "hyperapp"
 
 const state = {
   index: 0,
-  imgList:["./images/photo1.png","./images/photo2.png","./images/photo3.png","./images/photo4.png"]
+  imgList:["./rewrite-images/banner1.png","./rewrite-images/banner2.png","./images/photo3.png","./images/photo4.png"]
 }
 
 const actions = {
@@ -60,4 +60,4 @@ const view = (state, actions) => (
   </div>
 )
 
-app(state, actions, view, document.body)
+app(state, actions, view, document.getELmentByClassName("image"))
