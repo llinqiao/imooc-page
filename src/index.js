@@ -2,7 +2,7 @@ import { h, app } from "hyperapp"
 
 const state = {
   index: 0,
-  imgList:["./rewrite-images/banner1.png","./rewrite-images/banner2.png","./images/photo3.png","./images/photo4.png"]
+  imgList:["./rewrite-images/banner1.jpg","./rewrite-images/banner2.jpg","./rewrite-images/banner3.jpg","./rewrite-images/banner4.jpg","./rewrite-images/banner5.jpg","./rewrite-images/banner6.jpg"]
 }
 
 const actions = {
@@ -42,22 +42,23 @@ const actions = {
 }
 
 const view = (state, actions) => (
-  <div className="container">
-  <div className="code-box center">
-    <div className="container-border center">
+  <div className="bannerContent">
+    <div className="image">
+      <a href="https://imooc.com">  
         <div className="carousel"
          style={{
-          transform: "translateX(" + -1*state.index*500 + "px)"
+          transform: "translateX(" + -1*state.index*936 + "px)"
           }}>
           {state.imgList.map(item =>{
-            return<img src= {item}/>
+            return<img className="carousel-image"src= {item}/>
           })}
         </div>
-          <img className="arrow right-arrow" onclick={() => actions.next()} src="./images/photo8.png"/>
-          <img className="arrow left-arrow" onclick={() => actions.previous()} src="./images/photo7.png"/>
+      </a>
+          <img className="arrow-left" onclick={() => actions.previous()} src="./rewrite-images/banner2.png"/>
+          <img className="arrow-right" onclick={() => actions.next()} src="./rewrite-images/banner3.png"/>
+      
     </div>
-  </div>
   </div>
 )
 
-app(state, actions, view, document.getELmentByClassName("image"))
+app(state, actions, view, document.getElementById("bannerContent"))
